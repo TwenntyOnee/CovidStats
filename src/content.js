@@ -16,6 +16,7 @@ const Content = () => {
   const [CovidItemLife, setCovidItemLife] = useState(null);
   const [CovidItemArea, setCovidItemArea] = useState(null);
   const [CovidItemUpdate, setCovidItemUpdate] = useState(null);
+  const [CovidItemCountry, setCovidItemCountry] = useState(null);
 
   const [loading, setLoading] = useState(false);
   let country = "Czechia";
@@ -36,6 +37,7 @@ const Content = () => {
           setCovidItemLife(res.data.All.life_expectancy);
           setCovidItemArea(res.data.All.sq_km_area);
           setCovidItemUpdate(res.data.All.updated);
+          setCovidItemCountry(res.data.All.country);
         });
 
       setLoading(true);
@@ -66,8 +68,8 @@ const Content = () => {
   }, 2000);
 
   // function getCountry() {
-  //   var selectedCountry = document.getElementById("country").value;
-  //   console.log({ selectedCountry });
+  //   country = "Czechia";
+  //   console.log(country);
   // }
 
   return (
@@ -90,12 +92,12 @@ const Content = () => {
         </select>
       </div>
 
-      {/* <button onClick={getCountry}>Select</button> */}
+      {/* {<button onClick={getCountry}>Select</button>} */}
 
       <div className=" bg-bgContent shadow-2xl bg-cover rounded-xl w-1/2 m-auto h-full  ">
         <div className="wrapper border-b-2 m-auto border-blue-300 pb-4 flex justify-between w-11/12">
           <h1 className=" text-5xl text-left font-semibold ml-10 text-white pt-8">
-            Czech republic
+            {loading ? CovidItemCountry : "Loading..."}
           </h1>
           <p className="font-normal text-sm mt-6 text-white pr-10 pt-8">
             Updated: {loading ? CovidItemUpdate : "Loading..."}
@@ -115,7 +117,7 @@ const Content = () => {
             <p>Capital city: {loading ? CovidItemCapital : "Loading..."}</p>
             <p>Population: {loading ? CovidItemPopulation : "Loading..."}</p>
             <p>Life expectancy: {loading ? CovidItemLife : "Loading..."}</p>
-            <p>Km2 area: {loading ? CovidItemArea : "Loading..."}</p>
+            <p>Area (km²): {loading ? CovidItemArea : "Loading..."}</p>
           </div>
         </div>
       </div>
