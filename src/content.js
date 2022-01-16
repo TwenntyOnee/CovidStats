@@ -95,24 +95,24 @@ const Content = () => {
       {/* {<button onClick={getCountry}>Select</button>} */}
 
       <div className=" bg-bgContent shadow-2xl bg-cover rounded-xl w-1/2 m-auto h-full  ">
-        <div className="wrapper border-b-2 m-auto border-blue-300 pb-4 flex justify-between w-11/12">
-          <h1 className=" text-5xl text-left font-semibold ml-10 text-white pt-8">
+        <div className="wrapper border-b-2 m-auto border-blue-300 pb-4 flex flex-col lg:flex-row lg:justify-between w-11/12">
+          <h1 className=" text-4xl lg:text-5xl  font-semibold text-center lg:ml-10 text-white lg:pt-8">
             {loading ? CovidItemCountry : "Loading..."}
           </h1>
-          <p className="font-normal text-sm mt-6 text-white pr-10 pt-8">
+          <p className="font-normal text-[10px]  lg:text-sm mt-6 text-white lg:pr-10 lg:pt-8">
             Updated: {loading ? CovidItemUpdate : "Loading..."}
           </p>
         </div>
 
-        <div className="wrapper w-full text-white font-semibold leading-7 p-20 flex justify-around">
-          <div className="covidstats border-l-2 border-blue-300 pl-5">
+        <div className="wrapper w-full text-white font-semibold text-center leading-10 lg:p-20 flex flex-col lg:flex-row text-[0.75rem] lg:text-[0.9rem] justify-around">
+          <div className="covidstats lg:border-l-2 lg:border-blue-300 lg:pl-5">
             <p>Confirmed: {loading ? CovidItem : "Loading..."}</p>
             <p>Deaths: {loading ? CovidItemDeaths : "Loading..."}</p>
             <p>Recovered: {loading ? CovidItemRecovered : "Loading..."}</p>
             <p>Vaccinated: {loading ? vacItem : "Loading..."}</p>
           </div>
 
-          <div className="countrystats border-l-2 h-60 border-blue-300 pl-5">
+          <div className="countrystats lg:border-l-2 lg:pt-0 pt-8 pb-10 leading-10 lg:border-blue-300 lg:pl-5">
             <p>Abbreviation: {loading ? CovidItemAbb : "Loading..."}</p>
             <p>Capital city: {loading ? CovidItemCapital : "Loading..."}</p>
             <p>Population: {loading ? CovidItemPopulation : "Loading..."}</p>
